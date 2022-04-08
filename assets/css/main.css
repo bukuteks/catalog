@@ -1,0 +1,331 @@
+    body {
+        height: 100%;
+    }
+    
+    header,
+    main,
+    footer,
+    .user-container {
+        padding-left: 300px;
+    }
+    
+    .user-container {
+        height: 100%;
+        width: 100vw;
+        max-width: 100%;
+    }
+    
+    .dashboard {
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        background-color: #9e9e9e;
+    }
+    
+    .no-margin {
+        margin: 0;
+    }
+    
+    th,
+    td {
+        padding: 15px 24px;
+    }
+    
+    .parcel-chip {
+        border-style: solid;
+        border-color: #d73a4a;
+        border-width: 1px;
+        background-color: rgba(215, 58, 74, 0.3);
+        color: #d73a4a;
+        height: 24px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        margin-bottom: 0;
+        ;
+    }
+    
+    .student-chip {
+        border-style: solid;
+        border-color: #7057ff;
+        border-width: 1px;
+        background-color: rgba(112, 87, 255, 0.3);
+        color: #7057ff;
+        height: 24px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        margin-bottom: 0;
+        ;
+    }
+    
+    .admin-chip {
+        border-style: solid;
+        border-color: #0075ca;
+        border-width: 1px;
+        background-color: rgba(0, 117, 202, 0.3);
+        color: #0075ca;
+        height: 24px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        margin-bottom: 0;
+        ;
+    }
+    
+    .avatars-img {
+        display: inline-flex;
+        flex-direction: row-reverse;
+    }
+    
+    .avatar-img {
+        position: relative;
+        border: 4px solid #fff;
+        border-radius: 50%;
+        overflow: hidden;
+        width: 30px;
+    }
+    
+    .avatar-img:not(:last-child) {
+        margin-left: -20px;
+    }
+    
+    .avatar-img img {
+        width: 100%;
+        display: block;
+    }
+    
+    .select-wrapper {
+        background-color: rgb(238, 238, 238);
+        border-radius: 7px 7px 0 0;
+        border-bottom: 1px solid #9e9e9e;
+    }
+    
+    .select-wrapper input.select-dropdown {
+        color: rgb(117, 117, 117);
+        padding: 0px 0px 0px 10px;
+        width: (width - 10px);
+        border-bottom: 0px;
+        margin: 0;
+    }
+    
+    .select-wrapper input.select-dropdown:focus {
+        color: rgb(117, 117, 117);
+        padding: 0px 0px 0px 10px;
+        width: (width - 10px);
+        border-bottom: 0px;
+    }
+    
+    * {
+        box-sizing: border-box
+    }
+    /* Slideshow container */
+    
+    .slideshow-container {
+        height: 300px;
+        width: 100%
+    }
+    
+    .img-1::before,
+    .img-1::after {
+        width: 100%;
+        height: 100%;
+        content: "";
+        background-position: center;
+        background-size: contain;
+        display: block;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+    
+    .img-1::before {
+        content: "";
+        background-repeat: repeat;
+        filter: blur(3px);
+        -webkit-filter: blur(3px);
+    }
+    
+    .img-1::after {
+        content: "";
+        background-repeat: no-repeat;
+        z-index: 1;
+    }
+    /* Hide the images by default */
+    
+    .mySlides {
+        display: none;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .custom-image {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        z-index: 100;
+    }
+    /* Next & previous buttons */
+    
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 2;
+    }
+    /* Position the "next button" to the right */
+    
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+    /* Position the "left button" to the left */
+    
+    .prev {
+        left: 0;
+    }
+    /* On hover, add a black background color with a little bit see-through */
+    
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    /* Caption text */
+    
+    .text {
+        background-color: rgba(0, 0, 0, 0.4);
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 2;
+    }
+    /* Number text (1/3 etc) */
+    
+    .numbertext {
+        background-color: rgba(0, 0, 0, 0.4);
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+        z-index: 2;
+    }
+    /* The dots/bullets/indicators */
+    
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+    /* Fading animation */
+    
+    .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+    
+    @-webkit-keyframes fade {
+        from {
+            opacity: .4
+        }
+        to {
+            opacity: 1
+        }
+    }
+    
+    @keyframes fade {
+        from {
+            opacity: .4
+        }
+        to {
+            opacity: 1
+        }
+    }
+    
+    .main-circle {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+    
+    .circle-info {
+        height: 90px;
+        width: 90px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        border: solid 5px #bdbdbd;
+    }
+    
+    .table-card {
+        min-height: 465px;
+    }
+    
+    .table-bottom {
+        position: absolute;
+        width: 100%;
+        bottom: 0px;
+    }
+    
+    #loadingPane {
+        padding-left: 300px;
+    }
+    
+    .announcement-layout {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none;
+        scroll-snap-type: x mandatory;
+    }
+    
+    .announcement {
+        height: 20%;
+        border-radius: 15px;
+        display: inline-block;
+        scroll-snap-align: start;
+        overflow: hidden;
+        aspect-ratio: 16/9;
+    }
+    
+    .announcement img {
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    @media only screen and (max-width: 992px) {
+        header,
+        main,
+        footer,
+        #loadingPane,
+        .user-container {
+            padding-left: 0px;
+        }
+        .slideshow-container {
+            height: 130px;
+        }
+    }
