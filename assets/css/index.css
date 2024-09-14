@@ -1,0 +1,99 @@
+.dashboard {
+    margin: 30px 24px;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0px;
+}
+
+.title {
+    font-weight: bold;
+    margin: 0px;
+}
+
+.btn.circle {
+    padding: 0;
+    height: 48px;
+    width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.btn.box {
+    padding: 0;
+    height: 48px;
+    width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search {
+    padding: 12px 0px;
+}
+
+.autocomplete.search {
+    border-bottom: 0px;
+    padding: 0px;
+    border-radius: 10px 10px 10px 10px
+}
+
+.autocomplete.search:focus {
+    border-bottom: 0px !important;
+    padding: 0px 0px 0px 52px !important;
+}
+
+.picture {
+    height: 200px;
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section.category {
+    margin: 12px 0px
+}
+
+.category-button {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-button .btn {
+    margin-bottom: 6px;
+}
+
+.top-section {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.card-item {
+    height: 150px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.item-image {
+    height: 100px;
+}
+
+.card-title {
+    margin: 0;
+}
+
+.card-subtitle {
+    margin: 0;
+}
