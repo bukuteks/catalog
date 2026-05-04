@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Books - Channel Buku Teks</title>
+  <meta name="description" content="Browse and filter digital textbooks by level, curriculum, and subject. Download KSSR &amp; KSSM textbooks.">
+  <link rel="icon" href="../cdn/images/book-icon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <div class="container">
+    <button class="mobile-filter-toggle" id="filter-toggle">&#9776; Filters</button>
+
+    <div class="browse-layout">
+      <!-- Sidebar Filters -->
+      <aside class="browse-sidebar" id="browse-sidebar">
+        <div class="filter-group">
+          <div class="filter-label">Search</div>
+          <input type="text" id="browse-search" placeholder="Search books..."
+                 style="width:100%;padding:10px 14px;background:var(--bg-input);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text-primary);outline:none;font-size:0.85rem;">
+        </div>
+        <div class="filter-group">
+          <div class="filter-label">Tingkatan</div>
+          <div class="filter-options" id="filter-levels">
+            <div class="skeleton" style="height:36px;margin-bottom:4px"></div>
+            <div class="skeleton" style="height:36px;margin-bottom:4px"></div>
+            <div class="skeleton" style="height:36px"></div>
+          </div>
+        </div>
+        <div class="filter-group">
+          <div class="filter-label">Curriculum</div>
+          <div class="filter-options" id="filter-curricula">
+            <div class="skeleton" style="height:36px;margin-bottom:4px"></div>
+            <div class="skeleton" style="height:36px;margin-bottom:4px"></div>
+            <div class="skeleton" style="height:36px"></div>
+          </div>
+        </div>
+        <div class="filter-group">
+          <div class="filter-label">Options</div>
+          <div class="filter-options">
+            <div class="filter-option" id="filter-dlp" onclick="App.toggleDLP()">
+              <div class="filter-check"></div>
+              <span>DLP Only</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main>
+        <div class="browse-toolbar">
+          <span class="browse-results" id="results-count">Loading...</span>
+          <div class="browse-sort">
+            <select id="sort-select">
+              <option value="name">Sort: A-Z</option>
+              <option value="level">Sort: By Level</option>
+            </select>
+          </div>
+        </div>
+        <div class="browse-active-filters" id="active-filters"></div>
+        <div class="book-grid" id="books-grid">
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div id="footer-container"></div>
+
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.getElementById('navbar-container').innerHTML = Components.navbar('browse');
+    document.getElementById('footer-container').innerHTML = Components.footer();
+    App.initBrowse();
+  </script>
+</body>
+</html>
