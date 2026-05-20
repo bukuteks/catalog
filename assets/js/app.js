@@ -146,9 +146,12 @@ const App = {
     if (!data) return;
     let html = '';
     for (const school of data) {
+      html += `<div class="level-group-header">${school.name} <span class="level-group-count">(${school.totalBooks} buku)</span></div>`;
+      html += `<div class="level-group-grid">`;
       for (const level of school.studentLevels) {
-        html += Components.levelCard(level);
+        html += Components.levelCard(level, school.code);
       }
+      html += `</div>`;
     }
     container.innerHTML = html;
     // Update stats
