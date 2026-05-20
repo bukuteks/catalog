@@ -36,9 +36,17 @@ const Components = {
   },
 
   /** Create a level card */
-  levelCard(level, icon) {
-    const icons = { 'Tingkatan 1': '1', 'Tingkatan 2': '2', 'Tingkatan 3': '3', 'Tingkatan 4': '4', 'Tingkatan 5': '5' };
-    const num = icons[level.name] || icon || '?';
+  levelCard(level, schoolLevel) {
+    // Extract number or abbreviation for the icon
+    let num = '?';
+    const tahunMatch = level.name.match(/Tahun\s*(\d+)/i);
+    const tingkatanMatch = level.name.match(/Tingkatan\s*(\d+)/i);
+    if (tahunMatch) num = tahunMatch[1];
+    else if (tingkatanMatch) num = tingkatanMatch[1];
+    else if (level.name.toLowerCase().includes('peralihan')) num = 'KP';
+
+    // Build filter params — include school level for proper filtering
+    const filterParam = schoolLevel ? `level=${level.code}&school=${schoolLevel}` : `level=${level.code}`;
     return `
       <div class="level-card" onclick="App.browseTo('${level.code}')" role="button" tabindex="0"
            onkeydown="if(event.key==='Enter')App.browseTo('${level.code}')">
@@ -74,25 +82,50 @@ const Components = {
       </div>`;
   },
 
-  /** Create download buttons for book detail */
+  /** Create download buttons for book detail — only shows available links */
   downloadButtons(downloads) {
-    if (!downloads) return '';
+    if (!downloads) return this._noDownloads();
+
+    const buttons = [];
+
+    if (downloads.telegram && downloads.telegram !== '#') {
+      buttons.push(`
+        <a href="${downloads.telegram}" class="download-btn telegram" target="_blank" rel="noopener">
+          <span class="download-btn-icon">&#9993;</span>
+          <span class="download-btn-text">Download via Telegram</span>
+          <span class="download-btn-arrow">&rarr;</span>
+        </a>`);
+    }
+
+    if (downloads.pdf && downloads.pdf !== '#') {
+      buttons.push(`
+        <a href="${downloads.pdf}" class="download-btn pdf" target="_blank" rel="noopener">
+          <span class="download-btn-icon">&#128196;</span>
+          <span class="download-btn-text">Download PDF</span>
+          <span class="download-btn-arrow">&rarr;</span>
+        </a>`);
+    }
+
+    if (downloads.gdrive && downloads.gdrive !== '#') {
+      buttons.push(`
+        <a href="${downloads.gdrive}" class="download-btn gdrive" target="_blank" rel="noopener">
+          <span class="download-btn-icon">&#9729;</span>
+          <span class="download-btn-text">Download via Google Drive</span>
+          <span class="download-btn-arrow">&rarr;</span>
+        </a>`);
+    }
+
+    if (buttons.length === 0) return this._noDownloads();
+    return buttons.join('');
+  },
+
+  /** Unavailable downloads message */
+  _noDownloads() {
     return `
-      <a href="${downloads.telegram}" class="download-btn telegram" target="_blank" rel="noopener">
-        <span class="download-btn-icon">&#9993;</span>
-        <span class="download-btn-text">Download via Telegram</span>
-        <span class="download-btn-arrow">&rarr;</span>
-      </a>
-      <a href="${downloads.pdf}" class="download-btn pdf" target="_blank" rel="noopener">
-        <span class="download-btn-icon">&#128196;</span>
-        <span class="download-btn-text">Download PDF</span>
-        <span class="download-btn-arrow">&rarr;</span>
-      </a>
-      <a href="${downloads.gdrive}" class="download-btn gdrive" target="_blank" rel="noopener">
-        <span class="download-btn-icon">&#9729;</span>
-        <span class="download-btn-text">Download via Google Drive</span>
-        <span class="download-btn-arrow">&rarr;</span>
-      </a>`;
+      <div class="download-unavailable">
+        <span class="download-unavailable-icon">&#128219;</span>
+        <span class="download-unavailable-text">Downloads are not available yet for this book.</span>
+      </div>`;
   },
 
   /** Build breadcrumb */
