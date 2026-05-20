@@ -180,6 +180,23 @@ input, select { font: inherit; color: inherit; }
 .level-card-name { font-family: 'BebasNeue', sans-serif; font-size: 1.2rem; margin-bottom: 4px; position: relative; }
 .level-card-count { font-size: 0.8rem; color: var(--text-muted); position: relative; }
 
+/* ===== LEVEL GROUP (school-level sections) ===== */
+.level-group-header {
+  font-family: 'BebasNeue', sans-serif; font-size: 1.15rem;
+  letter-spacing: 1px; color: var(--text-secondary);
+  margin-bottom: 12px; margin-top: 20px;
+  padding-bottom: 8px; border-bottom: 1px solid var(--border);
+}
+.level-group-header:first-child { margin-top: 0; }
+.level-group-count {
+  font-family: 'Poppins', sans-serif; font-size: 0.8rem;
+  color: var(--text-muted); font-weight: 400; letter-spacing: 0;
+}
+.level-group-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px; margin-bottom: 16px;
+}
+
 /* ===== CURRICULUM PILLS ===== */
 .curriculum-grid {
   display: flex; flex-wrap: wrap; gap: 10px;
@@ -386,6 +403,14 @@ input, select { font: inherit; color: inherit; }
   color: #fff;
 }
 .download-btn.gdrive:hover { box-shadow: 0 4px 20px rgba(52,168,83,0.3); }
+.download-unavailable {
+  display: flex; align-items: center; gap: 14px;
+  padding: 20px 24px; border-radius: var(--radius-md);
+  background: var(--bg-card); border: 1px dashed var(--border-light);
+  color: var(--text-muted);
+}
+.download-unavailable-icon { font-size: 1.6rem; opacity: 0.5; flex-shrink: 0; }
+.download-unavailable-text { font-size: 0.9rem; }
 .related-section h2 {
   font-family: 'BebasNeue', sans-serif; font-size: 1.3rem;
   letter-spacing: 1px; margin-bottom: 16px;
