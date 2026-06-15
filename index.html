@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Channel Buku Teks - Your Main Online Text Book Provider</title>
+  <meta name="description" content="Download free digital textbooks for KSSR &amp; KSSM curriculum. Access textbooks for Sekolah Rendah and Sekolah Menengah.">
+  <link rel="icon" href="../cdn/images/book-icon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <!-- Navbar injected by JS -->
+  <div id="navbar-container"></div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <img src="../cdn/images/logo.png" alt="Channel Buku Teks Logo" class="hero-logo" width="100" height="100">
+      <h1>Channel Buku Teks</h1>
+      <p class="hero-tagline">~ Your Main Online Text Book Provider ~</p>
+      <p class="hero-sub">Est. 2020 &middot; KSSR &amp; KSSM</p>
+      <div class="hero-search" id="hero-search-container">
+        <span class="hero-search-icon">&#128269;</span>
+        <input type="text" id="hero-search-input" placeholder="Search textbooks by subject, level, or curriculum..." autocomplete="off">
+        <div class="search-dropdown" id="hero-search-dropdown"></div>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num" id="stat-total">—</div>
+          <div class="hero-stat-label">Textbooks</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num" id="stat-levels">—</div>
+          <div class="hero-stat-label">Levels</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num" id="stat-curricula">—</div>
+          <div class="hero-stat-label">Curricula</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Browse by Tingkatan -->
+  <section class="section" id="levels-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Browse by Tingkatan</h2>
+        <a href="browse.html" class="section-link">View All &rarr;</a>
+      </div>
+      <div class="level-grid" id="levels-grid">
+        <div class="skeleton skeleton-card" style="height:140px"></div>
+        <div class="skeleton skeleton-card" style="height:140px"></div>
+        <div class="skeleton skeleton-card" style="height:140px"></div>
+        <div class="skeleton skeleton-card" style="height:140px"></div>
+        <div class="skeleton skeleton-card" style="height:140px"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Browse by Curriculum -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Browse by Curriculum</h2>
+      </div>
+      <div class="curriculum-grid" id="curricula-grid">
+        <div class="skeleton" style="width:120px;height:42px;border-radius:24px"></div>
+        <div class="skeleton" style="width:100px;height:42px;border-radius:24px"></div>
+        <div class="skeleton" style="width:90px;height:42px;border-radius:24px"></div>
+        <div class="skeleton" style="width:110px;height:42px;border-radius:24px"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Books -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Featured Books</h2>
+        <a href="browse.html" class="section-link">See All &rarr;</a>
+      </div>
+      <div class="book-grid" id="featured-grid">
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer injected by JS -->
+  <div id="footer-container"></div>
+
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.getElementById('navbar-container').innerHTML = Components.navbar('home');
+    document.getElementById('footer-container').innerHTML = Components.footer();
+    App.initHome();
+  </script>
+</body>
+</html>
